@@ -20,136 +20,182 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>
-					Beautiful presentations
-				</h1>
-				<h2>New features</h2>
-				<ul>
-					<li>Nerd icons </li>
-					<li><code class="js">(inline) => code("highlighting")</code></li>
-					<li>Automatic QR Code generation</li>
-					<li>and much more!</li>
-				</ul>
-			</section>
-			<section>
-				<h1>
-					Custom TokyoNight theme
-				</h1>
-				<h2 class="fragment">That has</h2>
-				<h3 class="fragment">Multi</h3>
-				<h4 class="fragment">Level</h4>
-				<h5 class="fragment">Heading</h5>
-				<h6 class="fragment">Coloring</h6>
-				<h6>Thanks to this project <a href="https://github.com/tcmmichaelb139/obsidian-tokyonight"></a> for the
-					colorscheme!</h6>
+				<h1>Организация запросов на выборку данных</h1>
+				<img alt="https://ktkv-presentations.github.io/db-3" data-type="qrcode">
 			</section>
 			<section>
 				<section>
-					<h1>Tailwind CSS</h1>
-					<div class="grid grid-cols-2 gap-8">
-						<div>
-							<h5>Lorem, ipsum.</h5>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quod fugiat harum modi laboriosam
-								dignissimos, maxime possimus? Error, nihil in.</p>
-						</div>
-						<div>
-							<h5>Lorem, ipsum.</h5>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quod fugiat harum modi laboriosam
-								dignissimos, maxime possimus? Error, nihil in.</p>
-						</div>
-						<div class="col-span-2">
-							<h5>Lorem, ipsum.</h5>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quod fugiat harum modi laboriosam
-								dignissimos, maxime possimus? Error, nihil in.</p>
-						</div>
-					</div>
-				</section>
-				<section>
-					<h1>Custom classes</h1>
-					<div class="grid grid-cols-3 gap-8">
-						<div class="border-r">
-							<h5>border-r</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, soluta!</p>
-						</div>
-						<div class="border-o">
-							<h5>border-o</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, soluta!</p>
-						</div>
-						<div class="border-y">
-							<h5>border-y</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, soluta!</p>
-						</div>
-					</div>
-				</section>
-			</section>
-			<section>
-				<section data-auto-animate>
-					<h1>New code highlighting!</h1>
-					<div>
-						Now also has Tokyo Night <code>highlight.js</code> highlighting implementation
-					</div>
-					<pre><code data-trim data-noescape>
-var foo = {
-    bar: function () {
-             alert("Hello, World!");
-         }
-};	
-					</code></pre>
-				</section>
-				<section data-auto-animate>
-					<h1>New code highlighting!</h1>
-					<h5>Inline code highlighting is now also supported!</h5>
-					<p>
-						Just wrap your code with <code>&lt;code&gt;</code> tag and get
-						highlighting like this <code class="js">const foo = () => {return bar}</code>!
+					<h1>Запрос на выборку данных</h1>
+					<p>команда, которая извлекает информацию из одной или нескольких таблиц базы данных в зависимости от указанных
+						критериев</p>
+					<p><code
+							class="plaintext">SQL-запросы на выборку данных являются основным инструментом для получения информации из базы данных</code>
 					</p>
 				</section>
 			</section>
 			<section>
-				<h1>Mermaid for beautiful diagrams!</h1>
-				<div class="mermaid">
-					<pre>
-						erDiagram
-    CUSTOMER ||--o{ ORDER : ""
-    CUSTOMER {
-        string name
-        string custNumber
-        string sector
-    }
-    ORDER ||--|{ LINE-ITEM : contains
-    ORDER {
-        int orderNumber
-        string deliveryAddress
-    }
-    LINE-ITEM {
-        string productCode
-        int quantity
-        float pricePerUnit
-    }
-    ORDER ||--|{ STUDENT : contains
-    STUDENT {
-        int orderNumber
-        string deliveryAddress
-    }
-						</pre>
-				</div>
-				<h4>Check documentation <a href="https://mermaid.js.org/config/usage.html">here</a>!</h4>
+				<section>
+					<h1>Основы оператора SELECT</h1>
+					<p>Основная команда для выборки данных</p>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT [столбцы] FROM [таблица];
+						</code></pre>
+				</section>
+				<section>
+					<h1>Часто используемые запросы</h1>
+					<h2>Выбор всех столбцов</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM [таблица];
+						</code></pre>
+					<h2>Выбор конкретных столбцов</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT first_name, last_name FROM [таблица];
+						</code></pre>
+				</section>
+				<section>
+					<h1>Псевдонимы</h1>
+					<p>позволяют задавать альтернативные имена столбцам или таблицам в результатах запроса</p>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT first_name AS 'First Name', last_name AS 'Last Name' FROM [таблица];
+						</code></pre>
+					<p>В этом запросе AS 'First Name' и AS 'Last Name' указывают, что в результатах столбцы будут отображаться с
+						указанными именами</p>
+				</section>
+				<section>
+					<h1>Псевдонимы таблиц</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT e.FirstName, e.LastName FROM Employees e;
+						</code></pre>
+				</section>
+				<section>
+					<h1>Distinct</h1>
+					<p>используется для удаления дублирующихся строк из результатов запроса</p>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT DISTINCT Department FROM Employees;
+						</code></pre>
+					<p>Этот запрос извлечёт уникальные значения из столбца Department, игнорируя дублирующиеся</p>
+				</section>
 			</section>
 			<section>
-				<h1>Now supports Nerd font icons!</h1>
-				<div>Nerdy project that adds icons to font itself</div>
-				<h6>Checkout their site for icons like this <a href="https://www.nerdfonts.com/">󰖟</a>!
-				</h6>
+				<section>
+					<h1>Работа с выражениями и вычисляемыми столбцами</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT FirstName, Salary, Salary * 0.1 AS Bonus FROM Employees;
+						</code></pre>
+					<p>В этом запросе Salary * 0.1 вычисляется для каждого сотрудника, и результат отображается как Bonus.</p>
+				</section>
+				<section>
+					<h1>Работа с выражениями и вычисляемыми столбцами</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT FirstName, CONCAT(FirstName, ' ', LastName) AS FullName FROM Employees;
+						</code></pre>
+				</section>
+				<section>
+					<h1>Применение функций преобразования данных</h1>
+					<h2>Конвертация типа данных</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT CAST(Salary AS DECIMAL(10, 2)) FROM Employees;
+						</code></pre>
+					<p>Преобразование значения Salary в тип DECIMAL с двумя знаками после запятой</p>
+				</section>
+				<section>
+					<h1>Применение функций преобразования данных</h1>
+					<h2>Форматирование дат</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT FirstName, FORMAT(HireDate, 'dd-MM-yyyy') AS HireDateFormatted FROM Employees;
+						</code></pre>
+					<p>Функция FORMAT используется для форматирования даты в определённом формате</p>
+				</section>
 			</section>
 			<section>
-				<h1>Now supports automatic QRCode generation!</h1>
-				<div>With GoQR you can just add data-type and alt attributes to your <code
-						class="html">&lt;img alt="https://goqr.me/" data-type="qrcode" / &gt;</code> tag!</div>
-				<img class="r-stretch" alt="https://goqr.me/" data-type="qrcode" />
-				</h6>
+				<section>
+					<h1>Операторы фильтрации (WHERE)</h1>
+					<p>используется для фильтрации строк в результирующем наборе данных, чтобы удовлетворить определённым условиям
+					</p>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT [столбцы]
+FROM [таблица]
+WHERE [условие];
+						</code></pre>
+				</section>
+				<section>
+					<h1>Пример простого условия</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT FirstName, LastName
+FROM Employees
+WHERE Department = 'Sales';
+						</code></pre>
+				</section>
+				<section>
+					<h1>Сравнение с <code class="sql">=</code></h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees WHERE EmployeeID = 1;
+						</code></pre>
+					<p>Выбирает данные сотрудника с конкретным идентификатором.</p>
+				</section>
+				<section>
+					<h1>Неравенство <> или !=</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees WHERE Department <> 'HR';
+SELECT * FROM Employees WHERE Department != 'HR';
+						</code></pre>
+					<p>Извлекает сотрудников, работающих не в отделе HR.</p>
+				</section>
+				<section>
+					<h1>Больше/меньше</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees WHERE HireDate > '2022-01-01';
+						</code></pre>
+					<p>Выбирает сотрудников, нанятых после 1 января 2022 года.</p>
+				</section>
+				<section>
+					<h1>Между (BETWEEN):</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees WHERE Salary BETWEEN 50000 AND 100000;
+						</code></pre>
+					<p>Выбирает сотрудников, чья зарплата находится в диапазоне от 50 000 до 100 000.</p>
+				</section>
+				<section>
+					<h1>Сравнение с шаблоном (LIKE)</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees WHERE LastName LIKE 'S%';
+						</code></pre>
+					<p>Извлекает сотрудников, чьи фамилии начинаются на букву "S".</p>
+				</section>
+				<section>
+					<h1>Проверка на NULL (IS NULL / IS NOT NULL):</h1>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees WHERE MiddleName IS NULL;
+						</code></pre>
+					<p>Выбирает сотрудников, у которых нет отчества.</p>
+				</section>
 			</section>
 			<section>
-				<h1>New changes on the way!</h1>
+				<section>
+					<h1>Логические операторы</h1>
+					<h2>Оператор AND</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees
+WHERE Department = 'Sales' AND HireDate > '2022-01-01';
+						</code></pre>
+					<p>Выбирает сотрудников, работающих в отделе продаж и нанятых после 1 января 2022 года.</p>
+				</section>
+				<section>
+					<h2>Оператор OR</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees
+WHERE Department = 'Sales' OR Department = 'Marketing';
+						</code></pre>
+					<p>Извлекает сотрудников, работающих либо в отделе продаж, либо в маркетинга.</p>
+				</section>
+				<section>
+					<h2>Оператор NOT</h2>
+					<pre><code class="sql" data-trim data-noescape>
+SELECT * FROM Employees
+WHERE NOT Department = 'HR';
+						</code></pre>
+					<p>Выбирает сотрудников, работающих не в отделе HR.</p>
+				</section>
 			</section>
 		</div>
 	</div>
@@ -172,22 +218,22 @@ var foo = {
 		// More info about initialization & config:
 		// - https://revealjs.com/initialization/
 		// - https://revealjs.com/config/
-		
+
 		const colors = {
-    blue0: 'rgb(61, 89, 161)',
-    blue: 'rgb(122, 162, 247)',
-    cyan: 'rgb(125, 207, 255)',
-    magenta: 'rgb(187, 154, 247)',
-    orange: 'rgb(255, 158, 100)',
-    yellow: 'rgb(224, 175, 104)',
-    green: 'rgb(158, 206, 106)',
-    teal: 'rgb(26, 188, 156)',
-    red: 'rgb(255, 117, 127)',
-    red1: 'rgb(219, 75, 75)',
-    fg: 'rgb(192, 202, 245)',
-    bg: 'rgb(26, 27, 38)',
-		transparent: "#00000000"
-};
+			blue0: 'rgb(61, 89, 161)',
+			blue: 'rgb(122, 162, 247)',
+			cyan: 'rgb(125, 207, 255)',
+			magenta: 'rgb(187, 154, 247)',
+			orange: 'rgb(255, 158, 100)',
+			yellow: 'rgb(224, 175, 104)',
+			green: 'rgb(158, 206, 106)',
+			teal: 'rgb(26, 188, 156)',
+			red: 'rgb(255, 117, 127)',
+			red1: 'rgb(219, 75, 75)',
+			fg: 'rgb(192, 202, 245)',
+			bg: 'rgb(26, 27, 38)',
+			transparent: "#00000000"
+		};
 
 		Reveal.initialize({
 			hash: true,
